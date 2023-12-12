@@ -17,8 +17,8 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip install --user -r requirements.txt",
-	"postAttachCommand": [
-		"bash scripts/import_omop.sh "
+	"postCreateCommand": [
+		"scripts/import_omop.sh"
 	]
 
 	// Configure tool-specific properties.

@@ -111,5 +111,6 @@ echo
 echo "Cleanup vocab files"
 rm -r ./vocab
 
-echo "Ready."
-echo "Connect with psql -U postgres -h localhost -d cdm_dpp_oncology"
+echo "Done."
+echo "Connect with:"
+echo "    psql -U postgres -h localhost -d cdm_dpp_oncology"
