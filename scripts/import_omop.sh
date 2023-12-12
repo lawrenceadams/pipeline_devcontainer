@@ -9,7 +9,7 @@ mkdir /tmp/vocab/
 wget $OMOP_URL -O /tmp/vocab/vocab.zip
 
 echo "::step::Decompressing..."
-unzip /tmp/vocab/vocab.zip -d vocab/
+unzip /tmp/vocab/vocab.zip -d /tmp/vocab/
 
 POSTGRES="psql --username postgres -h localhost"
 
