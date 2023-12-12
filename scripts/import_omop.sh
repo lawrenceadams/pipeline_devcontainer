@@ -3,17 +3,17 @@ set -e
 
 OMOP_URL="https://athena.ohdsi.org/api/v1/vocabularies/zip/6f350fdf-7837-43e5-9ee5-a1f1dac971d9"
 
-echo "Downloading OMOP Vocab..."
+echo "::step::Downloading OMOP Vocab..."
 
 mkdir vocab/
 wget $OMOP_URL -O vocab/vocab.zip
 
-echo "Decompressing..."
+echo "::step::Decompressing..."
 unzip vocab/vocab.zip -d vocab/
 
 POSTGRES="psql --username postgres -h localhost"
 
-echo "Creating database: cdm_dpp_oncology"
+echo "::step::Creating database: cdm_dpp_oncology"
 
 $POSTGRES <<EOSQL
 CREATE DATABASE cdm_dpp_oncology OWNER postgres;
@@ -94,7 +94,7 @@ CREATE TABLE omop_source.VOCABULARY (
 EOSQL
 
 echo 
-echo "Hydrating OMOP Source Schema..."
+echo "::step::Hydrating OMOP Source Schema..."
 echo 
 
 psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.concept_ancestor FROM './vocab/CONCEPT_ANCESTOR.csv' WITH DELIMITER E'\t' HEADER" -h localhost
@@ -108,9 +108,9 @@ psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.relationship FROM './
 psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.vocabulary FROM './vocab/VOCABULARY.csv' WITH DELIMITER E'\t' HEADER" -h localhost
 
 echo 
-echo "Cleanup vocab files"
+echo "::step::Cleanup vocab files"
 rm -r ./vocab
 
-echo "Done."
+echo "::step::Done."
 echo "Connect with:"
 echo "    psql -U postgres -h localhost -d cdm_dpp_oncology"
