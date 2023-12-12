@@ -97,15 +97,15 @@ echo
 echo "::step::Hydrating OMOP Source Schema..."
 echo 
 
-psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.concept_ancestor FROM '/tmp/vocab/CONCEPT_ANCESTOR.csv' WITH DELIMITER E'\t' CSV HEADER" -h localhost
-psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.concept_class FROM '/tmp/vocab/CONCEPT_CLASS.csv' WITH DELIMITER E'\t' CSV HEADER" -h localhost
-psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.concept_relationship FROM '/tmp/vocab/CONCEPT_RELATIONSHIP.csv' WITH DELIMITER E'\t' CSV HEADER" -h localhost
-psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.concept_synonym FROM '/tmp/vocab/CONCEPT_SYNONYM.csv' WITH DELIMITER E'\t' CSV HEADER" -h localhost
-psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.concept FROM '/tmp/vocab/CONCEPT.csv' WITH DELIMITER E'\t' CSV HEADER" -h localhost
-psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.domain FROM '/tmp/vocab/DOMAIN.csv' WITH DELIMITER E'\t' CSV HEADER" -h localhost
-psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.drug_strength FROM '/tmp/vocab/DRUG_STRENGTH.csv' WITH DELIMITER E'\t' CSV HEADER" -h localhost
-psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.relationship FROM '/tmp/vocab/RELATIONSHIP.csv' WITH DELIMITER E'\t' CSV HEADER" -h localhost
-psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.vocabulary FROM '/tmp/vocab/VOCABULARY.csv' WITH DELIMITER E'\t' CSV HEADER" -h localhost
+psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.concept_ancestor FROM '/tmp/vocab/CONCEPT_ANCESTOR.csv' WITH DELIMITER E'\t' QUOTE E'\b' CSV HEADER" -h localhost
+psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.concept_class FROM '/tmp/vocab/CONCEPT_CLASS.csv' WITH DELIMITER E'\t' QUOTE E'\b' CSV HEADER" -h localhost
+psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.concept_relationship FROM '/tmp/vocab/CONCEPT_RELATIONSHIP.csv' WITH DELIMITER E'\t' QUOTE E'\b' CSV HEADER" -h localhost
+psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.concept_synonym FROM '/tmp/vocab/CONCEPT_SYNONYM.csv' WITH DELIMITER E'\t' QUOTE E'\b' CSV HEADER" -h localhost
+psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.concept FROM '/tmp/vocab/CONCEPT.csv' WITH DELIMITER E'\t' QUOTE E'\b' CSV HEADER" -h localhost
+psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.domain FROM '/tmp/vocab/DOMAIN.csv' WITH DELIMITER E'\t' QUOTE E'\b' CSV HEADER" -h localhost
+psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.drug_strength FROM '/tmp/vocab/DRUG_STRENGTH.csv' WITH DELIMITER E'\t' QUOTE E'\b' CSV HEADER" -h localhost
+psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.relationship FROM '/tmp/vocab/RELATIONSHIP.csv' WITH DELIMITER E'\t' QUOTE E'\b' CSV HEADER" -h localhost
+psql -U postgres -d cdm_dpp_oncology -c "\copy omop_source.vocabulary FROM '/tmp/vocab/VOCABULARY.csv' WITH DELIMITER E'\t' QUOTE E'\b' CSV HEADER" -h localhost
 
 echo 
 echo "::step::Cleanup vocab files"

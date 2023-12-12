@@ -19,7 +19,15 @@
 	// "postCreateCommand": "pip install --user -r requirements.txt",
 	"postCreateCommand": [
 		"scripts/import_omop.sh"
-	]
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ckolkman.vscode-postgres",
+				"innoverio.vscode-dbt-power-user"
+			]
+		}
+	}
 
 	// Configure tool-specific properties.
 	// "customizations": {},
